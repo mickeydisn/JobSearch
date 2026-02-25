@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+    
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/filters.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10/dist/ext/json-enc.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10/dist/ext/debug.js"></script>
+    <script>
+        // Configure HTMX to allow script tags in swapped content
+        htmx.config.allowScriptTags = true;
+        console.log('[HTMX] Script tags enabled in swapped content');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+    <div class="page">
+        <!-- Sidebar -->
+        <aside class="page-sidebar">
+            <!-- Current Stage -->
+            <div class="section" id="current-state">
+                <div class="section-title">
+                    <i class="fa fa-info-circle"></i>
+                    Current Stage
+                </div>
+                <div id="current-state-content">
+                    <div class="loading">
+                        <i class="fa fa-spinner fa-spin"></i>
+                        Loading...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Navigation -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fa fa-compass"></i>
+                    Navigation
+                </div>
+                <nav class="nav" id="page-buttons">
+                    <!-- Loaded dynamically -->
+                </nav>
+            </div>
+
+            <!-- Filters -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fa fa-sliders"></i>
+                    Filters
+                </div>
+                <div id="filters">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Keyword Filters -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fa fa-key"></i>
+                    Keywords
+                </div>
+                <div id="keyword-filters">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="page-content">
+            <!-- Header -- >
+            <header class="header">
+                <h1 class="header-title">
+                    <i class="fa fa-briefcase"></i>
+                    Job Search Dashboard
+                </h1>
+                <p class="header-subtitle">Manage and track your job applications</p>
+            </header>
+            -->
+
+            <!-- Page Content -->
+            <div id="page-content">
+                <div class="loading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

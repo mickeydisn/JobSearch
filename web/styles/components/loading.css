@@ -1,0 +1,12 @@
+/* ============================================
+   Loading
+   ============================================ */
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  color: var(--color-gray-500);
+}

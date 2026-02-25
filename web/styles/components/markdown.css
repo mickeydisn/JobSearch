@@ -1,0 +1,118 @@
+/* ============================================
+   Markdown Review Notes
+   ============================================ */
+
+.review-markdown {
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: var(--color-gray-600);
+}
+
+.review-markdown h1,
+.review-markdown h2,
+.review-markdown h3,
+.review-markdown h4,
+.review-markdown h5,
+.review-markdown h6 {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+.review-markdown h1 { font-size: 1.7em; }
+.review-markdown h2 { font-size: 1.5em; }
+.review-markdown h3 { font-size: 1.3em; }
+.review-markdown h4 { font-size: 1.2em; }
+
+.review-markdown p {
+  margin-bottom: var(--space-xs);
+}
+
+.review-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.review-markdown ul,
+.review-markdown ol {
+  margin-bottom: var(--space-xs);
+  padding-left: var(--space-md);
+}
+
+.review-markdown li {
+  margin-bottom: 2px;
+}
+
+.review-markdown strong {
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+.review-markdown em {
+  font-style: italic;
+}
+
+.review-markdown code {
+  background: var(--color-gray-100);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.9em;
+}
+
+.review-markdown pre {
+  background: var(--color-gray-800);
+  color: var(--color-gray-100);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin-bottom: var(--space-xs);
+}
+
+.review-markdown pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.review-markdown blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-sm);
+  margin-left: 0;
+  color: var(--color-gray-500);
+  font-style: italic;
+}
+
+.review-markdown a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.review-markdown a:hover {
+  color: var(--color-accent-dark);
+}
+
+.review-markdown hr {
+  border: none;
+  border-top: 1px solid var(--color-gray-200);
+  margin: var(--space-sm) 0;
+}
+
+.review-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-xs);
+  font-size: 0.9em;
+}
+
+.review-markdown th,
+.review-markdown td {
+  border: 1px solid var(--color-gray-200);
+  padding: var(--space-xs);
+  text-align: left;
+}
+
+.review-markdown th {
+  background: var(--color-gray-50);
+  font-weight: 600;
+}

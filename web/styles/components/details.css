@@ -1,0 +1,33 @@
+/* ============================================
+   Details/Summary
+   ============================================ */
+
+.details-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.details {
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.details summary {
+  padding: var(--space-md) var(--space-lg);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  user-select: none;
+}
+
+.details[open] summary {
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.details-content {
+  padding: var(--space-lg);
+}

@@ -1,0 +1,59 @@
+{
+  "scrap_jobs": {
+    "hellowork": {
+      "enabled": true,
+      "name": "HelloWork",
+      "pages": 8,
+      "delayBetweenRequests": 3,
+      "searchKeywords": [
+        "data engineer",
+        "platform engineer",
+        "prompt engineering"
+      ],
+      "filters": {
+        "location": "Paris",
+        "locationAutocomplete": "http://www.rj.com/commun/localite/departement/75",
+        "radius": 20
+      }
+    },
+    "linkedin": {
+      "enabled": true,
+      "name": "LinkedIn",
+      "pages": 8,
+      "delayBetweenRequests": 3,
+      "searchKeywords": [
+        "data engineer",
+        "platform engineer",
+        "prompt engineering"
+      ],
+      "filters": {
+        "location": "Paris",
+        "geoId": "101240143"
+      }
+    },
+    "welcome": {
+      "enabled": true,
+      "name": "Welcome to the Jungle",
+      "pages": 8,
+      "delayBetweenRequests": 3,
+      "searchKeywords": [
+        "data engineer",
+        "platform engineer",
+        "prompt engineering"
+      ],
+      "filters": {
+        "country": "FR",
+        "district": "Paris",
+        "state": "Ile-de-France",
+        "contractType": "full_time"
+      }
+    }
+  },
+  "update_jobs": {
+    "filter": {
+      "created_at_after": "2026-02-01",
+      "exclude_status": [],
+      "exclude_tag": []
+    }
+  }
+}

@@ -1,0 +1,60 @@
+/* ============================================
+   Tags & Badges
+   ============================================ */
+
+/* Tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  background: var(--color-gray-100);
+  color: var(--color-gray-700);
+}
+
+.tag-primary {
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
+}
+
+.tag-success {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.tag-warning {
+  background: #feebc8;
+  color: #7c2d12;
+}
+
+.tag-danger {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.tag-sm {
+  padding: 2px 6px;
+  font-size: 11px;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--color-gray-500);
+  color: var(--color-white);
+}
+
+.badge-primary {
+  background: var(--color-accent);
+}

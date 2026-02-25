@@ -1,0 +1,89 @@
+/* ============================================
+   JobSearch - Layout Styles
+   Page Layout, Sidebar, Grids, Responsive
+   ============================================ */
+
+/* Layout */
+.page {
+  min-height: 100vh;
+  display: flex;
+}
+
+.page-sidebar {
+  width: 20%;
+  background: var(--color-white);
+  border-right: 1px solid var(--color-gray-200);
+  padding: var(--space-lg);
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.page-content {
+  flex: 1;
+  margin-left: 20%;
+  padding: var(--space-lg);
+}
+
+/* Section */
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Box */
+.box {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-200);
+  margin-bottom: var(--space-md);
+}
+
+.box-header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-body {
+  padding: var(--space-lg);
+}
+
+.box-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-gray-800);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  .page-content {
+    margin-left: 0;
+  }
+
+  .page {
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

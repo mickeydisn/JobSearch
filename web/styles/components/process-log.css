@@ -1,0 +1,35 @@
+/* ============================================
+   Process Log
+   ============================================ */
+
+.process-log {
+  background: #1a1a2e;
+  color: #eaeaea;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.process-log-line {
+  padding: 2px 0;
+}
+
+.process-log-line.info {
+  color: #eaeaea;
+}
+
+.process-log-line.success {
+  color: #68d391;
+}
+
+.process-log-line.warning {
+  color: #f6e05e;
+}
+
+.process-log-line.error {
+  color: #fc8181;
+}
