@@ -2,3 +2,4 @@ data/
 reports/
 dist/
 .DS_Store
+.other
