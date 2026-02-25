@@ -13,6 +13,9 @@ api_sqlite/
 ├── table_jobs_raw.ts       # Raw job data from scrapers
 ├── table_jobs.ts           # ETL-processed jobs with keywords/TF-IDF
 ├── table_keyword_frequency.ts  # Keyword document frequency for TF-IDF
+├── table_keywords.ts       # Keywords management with stopwords & tags
+├── table_filter_profile.ts # Saved filter profiles
+├── table_jobs_save.ts      # User-saved jobs with status/review
 └── stopword.ts             # Stop words list for NLP
 ```
 
@@ -86,6 +89,50 @@ Document frequency for TF-IDF calculation.
 | -------- | ---- | ------------------------------- |
 | keyword  | TEXT | Primary key (lowercase keyword) |
 | docCount | INT  | Number of jobs containing word  |
+
+### keywords
+
+User-managed keywords with stopwords and tags for enhanced filtering.
+
+| Field       | Type   | Description                          |
+| ----------- | ------ | ------------------------------------ |
+| id          | TEXT   | Primary key (lowercase keyword)      |
+| keyword     | TEXT   | The keyword text (indexed)          |
+| is_stopword | INTEGER | Boolean flag (0/1) for stopword    |
+| tags        | TEXT   | JSON array of user-defined tags     |
+
+## Keywords Table Usage
+
+```typescript
+import { Keywords } from "./api_sqlite/table_keywords.ts";
+
+const keywords = new Keywords();
+
+// Add a keyword as stopword
+await keywords.addStopword("experience");
+
+// Remove stopword status
+await keywords.removeStopword("experience");
+
+// Add a tag to a keyword
+await keywords.addTag("python", "backend");
+await keywords.addTag("python", "data-science");
+
+// Remove a tag from a keyword
+await keywords.removeTag("python", "backend");
+
+// Search keywords by term
+const results = await keywords.searchKeywords("python", 100, 0);
+
+// Get all stopwords
+const stopwords = await keywords.getAllStopwords();
+
+// Get all keywords with a specific tag
+const taggedKeywords = await keywords.getByTag("backend");
+
+// Get all unique tags across all keywords
+const allTags = await keywords.getAllTags();
+```
 
 ## TableNode Base Class
 

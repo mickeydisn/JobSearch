@@ -24,7 +24,12 @@ export type ActionType =
   | "addReviewTag"
   | "removeReviewTag"
   | "setSavedJobsSort"
-  | "setSourceFilter";
+  | "setSourceFilter"
+  | "addStopword"
+  | "removeStopword"
+  | "addKeywordTag"
+  | "removeKeywordTag"
+  | "searchKeywords";
 
 /** Action payload types */
 export interface SetPagePayload {
@@ -103,6 +108,34 @@ export interface FilterProfilePayload {
   filters?: Record<string, string[]>;
 }
 
+export interface AddStopwordPayload {
+  keyword: string;
+}
+
+export interface RemoveStopwordPayload {
+  keyword: string;
+}
+
+export interface AddKeywordTagPayload {
+  keyword: string;
+  tag: string;
+}
+
+export interface RemoveKeywordTagPayload {
+  keyword: string;
+  tag: string;
+}
+
+export interface SearchKeywordsPayload {
+  searchTerm: string;
+  limit?: number;
+  offset?: number;
+}
+
+export interface SetKeywordSearchPayload {
+  searchTerm: string;
+}
+
 /** Union type for all action payloads */
 export type ActionPayload =
   | PageType
@@ -121,6 +154,11 @@ export type ActionPayload =
   | RemoveReviewTagPayload
   | SetSavedJobsSortPayload
   | SetSourceFilterPayload
+  | AddStopwordPayload
+  | RemoveStopwordPayload
+  | AddKeywordTagPayload
+  | RemoveKeywordTagPayload
+  | SearchKeywordsPayload
   | unknown;
 
 /** Action handler function type - supports both sync and async handlers */

@@ -44,6 +44,41 @@ processManager.register(ScrapJobsUsecase);
 processManager.register(UpdateJobsUsecase);
 console.log("📋 Registered processes:", processManager.getProcessDefinitions().map(p => p.name).join(", "));
 
+// Initialize database tables on startup
+import { JobsEtl } from "../api_sqlite/table_jobs.ts";
+import { JobsSave } from "../api_sqlite/table_jobs_save.ts";
+import { Keywords } from "../api_sqlite/table_keywords.ts";
+import { KeywordFrequency } from "../api_sqlite/table_keyword_frequency.ts";
+import { FilterProfile } from "../api_sqlite/table_filter_profile.ts";
+
+const initTables = async () => {
+  console.log("🏗️ Initializing database tables...");
+  
+  const jobsEtl = new JobsEtl();
+  await jobsEtl.createTable();
+  console.log("  ✅ jobs_etl table ready");
+  
+  const jobsSave = new JobsSave();
+  await jobsSave.createTable();
+  console.log("  ✅ jobs_save table ready");
+  
+  const keywords = new Keywords();
+  await keywords.createTable();
+  console.log("  ✅ keywords table ready");
+  
+  const keywordFreq = new KeywordFrequency();
+  await keywordFreq.createTable();
+  console.log("  ✅ keyword_frequency table ready");
+  
+  const filterProfile = new FilterProfile();
+  await filterProfile.createTable();
+  console.log("  ✅ filter_profile table ready");
+  
+  console.log("🏁 Database initialization complete");
+};
+
+await initTables();
+
 /** Serve static files */
 export const serveStatic = async (context: Context) => {
   const filePath = context.request.url.pathname;

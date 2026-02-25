@@ -17,6 +17,7 @@ export interface CurrentState {
   /** Keyword page specific state (persisted even when on jobs page) */
   keywordPage: {
     sortedBy: KeywordSortBy;
+    searchTerm: string;
   };
 }
 

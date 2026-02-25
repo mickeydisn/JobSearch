@@ -1,6 +1,6 @@
 import { CurrentState, PageType } from "../types/index.ts";
 import { ActionHandler, FilterPayload, 
-  SetSavedJobsSortPayload, SetSourceFilterPayload } from "./action_types.ts";
+  SetSavedJobsSortPayload, SetSourceFilterPayload, SetKeywordSearchPayload } from "./action_types.ts";
 
 /** Set current page */
 export const setPageHandler: ActionHandler = (state, payload) => {
@@ -94,6 +94,14 @@ export const setKeywordSortHandler: ActionHandler = (state, payload) => {
   return newState;
 };
 
+/** Set keyword page search term */
+export const setKeywordSearchHandler: ActionHandler = (state, payload) => {
+  const newState: CurrentState = JSON.parse(JSON.stringify(state));
+  const searchPayload = payload as SetKeywordSearchPayload;
+  newState.keywordPage.searchTerm = searchPayload.searchTerm;
+  return newState;
+};
+
 /** Set saved jobs sort */
 export const setSavedJobsSortHandler: ActionHandler = (state, payload) => {
   const sortPayload = payload as SetSavedJobsSortPayload;
@@ -128,6 +136,7 @@ export const syncActionHandlers: Record<string, ActionHandler> = {
   clearFilters: clearFiltersHandler,
   setPageNumber: setPageNumberHandler,
   setKeywordSort: setKeywordSortHandler,
+  setKeywordSearch: setKeywordSearchHandler,
   setSavedJobsSort: setSavedJobsSortHandler,
   setSourceFilter: setSourceFilterHandler,
 };

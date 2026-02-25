@@ -13,6 +13,7 @@ export const getDefaultState = (): CurrentState => ({
   },
   keywordPage: {
     sortedBy: "score",
+    searchTerm: "",
   },
 });
 
@@ -30,6 +31,7 @@ export const parseState = (jsonString: string | null): CurrentState => {
       },
       keywordPage: {
         sortedBy: parsed.keywordPage?.sortedBy || "score",
+        searchTerm: parsed.keywordPage?.searchTerm || "",
       },
     };
   } catch {

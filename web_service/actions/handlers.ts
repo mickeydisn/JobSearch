@@ -16,6 +16,7 @@ export {
   clearFiltersHandler,
   setPageNumberHandler,
   setKeywordSortHandler,
+  setKeywordSearchHandler,
   setSavedJobsSortHandler,
   setSourceFilterHandler,
   syncActionHandlers,

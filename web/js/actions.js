@@ -137,6 +137,33 @@ export async function handleMenuAction(element) {
                 source: element.dataset.source
             };
             break;
+        case 'setKeywordSearch':
+            payload = {
+                searchTerm: element.dataset.searchTerm || ''
+            };
+            break;
+        case 'addStopword':
+            payload = {
+                keyword: decodeURIComponent(element.dataset.keyword)
+            };
+            break;
+        case 'removeStopword':
+            payload = {
+                keyword: decodeURIComponent(element.dataset.keyword)
+            };
+            break;
+        case 'addKeywordTag':
+            payload = {
+                keyword: decodeURIComponent(element.dataset.keyword),
+                tag: decodeURIComponent(element.dataset.tag)
+            };
+            break;
+        case 'removeKeywordTag':
+            payload = {
+                keyword: decodeURIComponent(element.dataset.keyword),
+                tag: decodeURIComponent(element.dataset.tag)
+            };
+            break;
         default:
             console.warn('Unknown action:', action);
             return;

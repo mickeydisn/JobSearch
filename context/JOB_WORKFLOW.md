@@ -157,7 +157,9 @@ The user interacts through a web UI with these main pages:
 | `jobs_raw` | Raw scraped data | `id`, `title`, `jobText`, `titleKey` |
 | `jobs_etl` | Filtered & scored jobs | `id`, `jobKeywordScore`, `iaScoreW5a`, `userTag` |
 | `keyword_frequency` | TF-IDF base data | `keyword`, `frequency`, `job_count` |
+| `keywords` | Keyword management | `keyword`, `is_stopword`, `tags` |
 | `filter_profile` | Saved user filters | `name`, `filters` |
+| `jobs_save` | User-saved jobs | `job_etl_id`, `userStatus`, `userPriority`, `userTags`, `userReview` |
 
 ---
 

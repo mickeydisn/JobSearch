@@ -2,11 +2,14 @@ import { CurrentState } from "../types/index.ts";
 import { ActionHandler, FilterPayload, 
   SaveJobPayload, UpdateJobStatusPayload, UpdateJobPriorityPayload,
   AddJobTagPayload, RemoveJobTagPayload, UpdateJobReviewPayload,
-  AddReviewTagPayload, RemoveReviewTagPayload, FilterProfilePayload } from "./action_types.ts";
+  AddReviewTagPayload, RemoveReviewTagPayload, FilterProfilePayload,
+  AddStopwordPayload, RemoveStopwordPayload, AddKeywordTagPayload,
+  RemoveKeywordTagPayload, SearchKeywordsPayload } from "./action_types.ts";
 import { FilterProfile } from "../../api_sqlite/table_filter_profile.ts";
 import { JobsSave } from "../../api_sqlite/table_jobs_save.ts";
 import { JobsEtl } from "../../api_sqlite/table_jobs.ts";
 import { JobsSaveType } from "../../api_sqlite/table_jobs_save.ts";
+import { Keywords } from "../../api_sqlite/table_keywords.ts";
 
 /** Save a new filter profile */
 export const saveFilterProfileHandler: ActionHandler = async (state, payload) => {
@@ -514,6 +517,90 @@ export const removeReviewTagHandler: ActionHandler = async (state, payload) => {
   }
 };
 
+/** Add a keyword as stopword */
+export const addStopwordHandler: ActionHandler = async (state, payload) => {
+  try {
+    const stopwordPayload = payload as AddStopwordPayload;
+    const keywords = new Keywords();
+    
+    await keywords.addStopword(stopwordPayload.keyword);
+    console.log(`Added stopword: "${stopwordPayload.keyword}"`);
+    
+    return state;
+  } catch (error) {
+    console.error('Error adding stopword:', error);
+    throw error;
+  }
+};
+
+/** Remove a keyword from stopwords */
+export const removeStopwordHandler: ActionHandler = async (state, payload) => {
+  try {
+    const stopwordPayload = payload as RemoveStopwordPayload;
+    const keywords = new Keywords();
+    
+    await keywords.removeStopword(stopwordPayload.keyword);
+    console.log(`Removed stopword: "${stopwordPayload.keyword}"`);
+    
+    return state;
+  } catch (error) {
+    console.error('Error removing stopword:', error);
+    throw error;
+  }
+};
+
+/** Add a tag to a keyword */
+export const addKeywordTagHandler: ActionHandler = async (state, payload) => {
+  try {
+    const tagPayload = payload as AddKeywordTagPayload;
+    const keywords = new Keywords();
+    
+    await keywords.addTag(tagPayload.keyword, tagPayload.tag);
+    console.log(`Added tag "${tagPayload.tag}" to keyword: "${tagPayload.keyword}"`);
+    
+    return state;
+  } catch (error) {
+    console.error('Error adding keyword tag:', error);
+    throw error;
+  }
+};
+
+/** Remove a tag from a keyword */
+export const removeKeywordTagHandler: ActionHandler = async (state, payload) => {
+  try {
+    const tagPayload = payload as RemoveKeywordTagPayload;
+    const keywords = new Keywords();
+    
+    await keywords.removeTag(tagPayload.keyword, tagPayload.tag);
+    console.log(`Removed tag "${tagPayload.tag}" from keyword: "${tagPayload.keyword}"`);
+    
+    return state;
+  } catch (error) {
+    console.error('Error removing keyword tag:', error);
+    throw error;
+  }
+};
+
+/** Search keywords */
+export const searchKeywordsHandler: ActionHandler = async (state, payload) => {
+  try {
+    const searchPayload = payload as SearchKeywordsPayload;
+    const keywords = new Keywords();
+    
+    const results = await keywords.searchKeywords(
+      searchPayload.searchTerm,
+      searchPayload.limit || 100,
+      searchPayload.offset || 0
+    );
+    console.log(`Searched keywords for "${searchPayload.searchTerm}", found: ${results.length}`);
+    
+    return state;
+  } catch (error) {
+    console.error('Error searching keywords:', error);
+    throw error;
+  }
+};
+
 /** Map of async action handlers */
 export const asyncActionHandlers: Record<string, ActionHandler> = {
   saveFilterProfile: saveFilterProfileHandler,
@@ -530,4 +617,9 @@ export const asyncActionHandlers: Record<string, ActionHandler> = {
   saveJobReview: updateJobReviewHandler, // Alias for saveJobReview
   addReviewTag: addReviewTagHandler,
   removeReviewTag: removeReviewTagHandler,
+  addStopword: addStopwordHandler,
+  removeStopword: removeStopwordHandler,
+  addKeywordTag: addKeywordTagHandler,
+  removeKeywordTag: removeKeywordTagHandler,
+  searchKeywords: searchKeywordsHandler,
 };
