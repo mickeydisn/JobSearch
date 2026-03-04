@@ -2,9 +2,29 @@
 
 A Deno-based job search application that scrapes job listings from multiple sources, processes them, and provides a web interface for analysis.
 
-## Quick Start
+## Installation
 
-### 1. Initialize the Project
+### Prerequisites
+
+- [Deno](https://deno.com/manual/getting_started/installation) (version 1.40 or higher)
+- Git (for cloning the repository)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/mickeydisn/JobSearch.git
+cd JobSearch
+```
+
+### 2. Install Dependencies
+
+The project uses Deno's built-in dependency management. Install dependencies by caching the main server file:
+
+```bash
+deno cache --reload web_service/server.ts
+```
+
+### 3. Initialize the Project
 
 Before running the application for the first time, initialize the project:
 
@@ -17,7 +37,7 @@ This will:
 - Initialize all required database tables
 - Display setup information
 
-### 2. Start the Development Server
+### 4. Start the Development Server
 
 ```bash
 deno task dev
@@ -25,7 +45,7 @@ deno task dev
 
 The server will start on http://localhost:8080
 
-### 3. Use the Application
+### 5. Use the Application
 
 1. Open http://localhost:8080 in your browser
 2. Navigate to the "Processing" page to scrape jobs
