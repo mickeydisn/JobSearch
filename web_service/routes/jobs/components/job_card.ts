@@ -31,6 +31,11 @@ const buildKeywords = (item: JobsEtlType): string => {
   const isScore = item.jobKeywordScore && item.jobKeywordScore.length > 0;
 
   const keywordTags = topKeywords.map(([keyword, value]) => {
+    // Handle null/undefined values
+    if (value === null || value === undefined) {
+      value = 0;
+    }
+
     let tagClass = "";
     if (isScore) {
       if (value >= 0.5) tagClass = "tag-danger";

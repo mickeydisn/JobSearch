@@ -5,7 +5,8 @@
   "tasks": {
     "generate:page": "deno run --allow-read --allow-write tasks/generate_page.ts",
     "dev": "deno run --allow-all web_service/server.ts",
-    "check": "deno check web_service/server.ts"
+    "check": "deno check web_service/server.ts",
+    "init": "deno run --allow-all scripts/init_project.ts"
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.2.0",

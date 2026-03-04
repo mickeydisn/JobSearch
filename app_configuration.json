@@ -3,7 +3,7 @@
     "hellowork": {
       "enabled": true,
       "name": "HelloWork",
-      "pages": 8,
+      "pages": 3,
       "delayBetweenRequests": 3,
       "searchKeywords": [
         "data engineer",
@@ -19,7 +19,7 @@
     "linkedin": {
       "enabled": true,
       "name": "LinkedIn",
-      "pages": 8,
+      "pages": 3,
       "delayBetweenRequests": 3,
       "searchKeywords": [
         "data engineer",
@@ -34,7 +34,7 @@
     "welcome": {
       "enabled": true,
       "name": "Welcome to the Jungle",
-      "pages": 8,
+      "pages": 3,
       "delayBetweenRequests": 3,
       "searchKeywords": [
         "data engineer",
